@@ -111,7 +111,7 @@ Use the higher order function getAverageGoals to do the following:
 function getAverageGoals(getFinals, fifaData) {
     let finals = getFinals(fifaData);
     const average = finals.reduce(function(acc, item) {
-        return accumulator + item['Home Team Goals'] + item['Away Team Goals']
+        return acc + item['Home Team Goals'] + item['Away Team Goals']
     }, 0);
     return average / finals.length;
 }
