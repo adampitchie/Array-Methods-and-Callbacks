@@ -69,6 +69,9 @@ Use the higher-order function getWinners to do the following:
 
 function getWinners(array, getFinals) {
     let years = getFinals(array);
+    return years.map(function(item) {
+        return item["Home Team Goals"] > item["Away Team Goals"] ? item["Home Team Name"] : item["Away Team Name"]
+    })
 }
 
 
@@ -83,8 +86,14 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+function getWinnersByYear(array, getYears, getWinners) {
+    let years = getYears(array);
+    let winners = getWinners(years);
+    var array = [];
+    for (let i = 0; i < years.length; i++) {
+        array.push(`In ${years[i]}, ${winners[i]} won the world cup!`);
+    }
+    return array;
 }
 
 
